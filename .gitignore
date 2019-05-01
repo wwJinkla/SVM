@@ -1,0 +1,8 @@
+
+data/*
+__pycache__/*
+.ipynb_checkpoints/*
+credentials.json
+**/.ipynb_checkpoints
+**/*.pickle
+**/__pycache__
