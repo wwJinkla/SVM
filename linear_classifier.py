@@ -95,8 +95,8 @@ from linear_svm import binary_svm_loss
 class LinearSVM_twoclass(LinearClassifier):
   """ A subclass that uses the two-class SVM loss function """
 
-  def loss(self, X, y, lambda):
-    return binary_svm_loss(self.theta, X, y, lambda)
+  def loss(self, X, y, C):
+    return binary_svm_loss(self.theta, X, y, C)
 
   def predict(self,X):
     y_pred = np.dot(X,self.theta)

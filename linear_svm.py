@@ -4,7 +4,7 @@ import numpy as np
 #   Two class or binary SVM                                                      #
 ##################################################################################
 
-def binary_svm_loss(theta, X, y, lambda):
+def binary_svm_loss(theta, X, y, C):
 	"""
 	SVM hinge loss function for two class problem
 
@@ -12,7 +12,7 @@ def binary_svm_loss(theta, X, y, lambda):
 	- theta: A numpy vector of size d containing coefficients.
 	- X: A numpy array of shape mxd 
 	- y: A numpy array of shape (m,) containing training labels; +1, -1
-	- lambda: (float) regularization strength
+	- C: (float) regularization strength
 
 	Returns a tuple of:
 	- loss as single float
@@ -25,8 +25,8 @@ def binary_svm_loss(theta, X, y, lambda):
 
 	h = np.sum(theta*X,axis=1)
 	lin = np.maximum(0,1-y*h)
-	J = 1/(2.*m)*np.dot(theta,theta) + float(lambda)/m*np.sum(lin) 
+	J = 1/(2.*m)*np.dot(theta,theta) + float(C)/m*np.sum(lin) 
 	one_rows = np.where(y*h<1.)[0]
-	grad = 1./m*theta -float(lambda)/m*np.sum((y[one_rows,np.newaxis]*(X[one_rows,:])),axis=0)
+	grad = 1./m*theta -float(C)/m*np.sum((y[one_rows,np.newaxis]*(X[one_rows,:])),axis=0)
 
 	return J, grad
