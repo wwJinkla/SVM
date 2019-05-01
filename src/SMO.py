@@ -1,3 +1,9 @@
+"""
+Modified from
+    Implementing a support vector machine using sequential minimal optimization and python 3.5. https:
+//jonchar.net/notebooks/SVM/.
+"""
+
 import numpy as np
 
 class SMOModel:
